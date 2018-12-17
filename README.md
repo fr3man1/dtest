@@ -1,3 +1,5 @@
+Add data file to /tmp/data.txt
+
 Please write a maintainable solution for the question on page 2, using the rules given below:
 The solution must be written in C#.
 You will be given a triangle input and you need to find the path that provides the maximum possible
