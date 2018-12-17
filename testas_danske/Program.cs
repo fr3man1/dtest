@@ -77,16 +77,15 @@ namespace testas_danske
         {
             var i = 0;
             var b = 0;
-            Console.WriteLine(readList().Count);
+            //Console.WriteLine(readList().Count);
             //Determining if first member is even or odd
             //Then create a definition array of odd and even lines
             int count = readList().Count;
             bool first_is_even;
             //Int32.TryParse((string)((ArrayList)readList()[0])[0], out first_no);
             first_is_even = IsEven((int)((ArrayList)readList()[0])[0]);
-            Console.WriteLine(first_is_even);
+            //Console.WriteLine(first_is_even);
             var odd_even_array_def = OddEvenArray(count, first_is_even);
-
             var all_even_vals = new ArrayList();
             var all_odd_vals = new ArrayList();
             var all_even_index = new ArrayList();
@@ -97,12 +96,9 @@ namespace testas_danske
             for (i = 0; i < count; i++)
             {
 
-
-
                 var index = 0;
                 int odd_max = 0;
                 int even_max = 0;
-
 
                 for (b = 0; b < ((ArrayList)readList()[i]).Count; b++)
                 {
@@ -136,11 +132,13 @@ namespace testas_danske
                         if (value % 2 != 0)
                         {
                             //get all odd vals with index
+                            all_odd_vals = new ArrayList();
+                            all_odd_index = new ArrayList();
                             all_odd_vals.Add(value);
                             all_odd_index.Add(i);
                             all_odd_index.Add(b);
                             all_odd_vals.Add(all_odd_index);
-
+                            odd_array.Add(all_odd_vals);
 
                             if (value > even_max)
                             {
@@ -151,59 +149,26 @@ namespace testas_danske
                     }
                 }
 
-
-
                 //if (even_max != 0) Console.Write(even_max.ToString()+ " " + "odd_max" + "index:" + index + " ");
                 //if (odd_max != 0) Console.Write(odd_max.ToString() + " " + "even_max" + "index:" + index + " ");
             }
 
-            //even_array.Add(all_even_vals);
-            //even_array.Add(all_even_index);
-
-            //odd_array.Add(all_odd_vals);
-            //odd_array.Add(all_odd_index);
-
-            //Console.Write( (int) ((ArrayList) even_array[0]) [0] + "lyginis");
-            //Console.Write((int)((ArrayList) odd_array[2])[0] + "nelyginis");
-
-            //Console.Write((int) ((ArrayList) odd_array[1])[0] + "testas");
+            //even_array has all even values and their coordinates
             foreach (ArrayList value in even_array) {
                 Console.Write("verte: "+value[0] + " ");
-                Console.Write( "i:"+ (int)((ArrayList)(value[1]))[0] + " " );
-                Console.Write( "b:" + (int)((ArrayList)(value[1]))[1] + " ");
-
+                Console.Write( "y:"+ (int)((ArrayList)(value[1]))[0] + " " );
+                Console.Write( "x:" + (int)((ArrayList)(value[1]))[1] + " ");
             }
-            //Console.Write(even_array[]);
 
+            Console.Write("  nelyginiai  ");
 
-
-
-
-
-
-
-            //var i =0;
-            //for (i = 0; i < readList().Count; i++)
-            //{
-            //    Console.WriteLine(readList()[i].ToString());
-            //}
-
-
-
-            //bool first = true;
-
-            //foreach (ArrayList arr in readList())
-            //{   
-            //    foreach (string element in arr)
-            //    {
-            //        if (first) {
-            //            int firstNo;
-            //            Int32.TryParse(element, out firstNo);
-            //            Console.WriteLine(IsOdd(firstNo));
-            //            first = false;
-            //        }
-            //    }
-            //}
+            //odd array has all odd values and their coordinates
+            foreach (ArrayList value in odd_array)
+            {
+                Console.Write("verte: " + value[0] + " ");
+                Console.Write("y:" + (int)((ArrayList)(value[1]))[0] + " ");
+                Console.Write("x:" + (int)((ArrayList)(value[1]))[1] + " ");
+            }
 
         }
 
