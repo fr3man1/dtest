@@ -112,10 +112,18 @@ namespace testas_danske
                     {
                         if (value % 2 == 0)
                         {
-                            //get all odd vals with index
+                            //get all even vals with index
+                            all_even_vals = new ArrayList();
+                            all_even_index = new ArrayList();
+
                             all_even_vals.Add(value);
                             all_even_index.Add(i);
                             all_even_index.Add(b);
+                            all_even_vals.Add(all_even_index);
+
+                            even_array.Add(all_even_vals);
+
+
                             if (value > odd_max)
                             {
                                 odd_max = value;
@@ -128,9 +136,10 @@ namespace testas_danske
                         if (value % 2 != 0)
                         {
                             //get all odd vals with index
-                            all_even_vals.Add(value);
-                            all_even_index.Add(i);
-                            all_even_index.Add(b);
+                            all_odd_vals.Add(value);
+                            all_odd_index.Add(i);
+                            all_odd_index.Add(b);
+                            all_odd_vals.Add(all_odd_index);
 
 
                             if (value > even_max)
@@ -141,15 +150,31 @@ namespace testas_danske
                         }
                     }
                 }
-                even_array.Add(all_even_vals, all_even_index);
-                odd_array.Add(all_odd_vals, all_odd_index);
+
+
 
                 //if (even_max != 0) Console.Write(even_max.ToString()+ " " + "odd_max" + "index:" + index + " ");
                 //if (odd_max != 0) Console.Write(odd_max.ToString() + " " + "even_max" + "index:" + index + " ");
             }
 
+            //even_array.Add(all_even_vals);
+            //even_array.Add(all_even_index);
 
-            Console.Write((int) ((ArrayList) even_array[0])[0] + "testas");
+            //odd_array.Add(all_odd_vals);
+            //odd_array.Add(all_odd_index);
+
+            //Console.Write( (int) ((ArrayList) even_array[0]) [0] + "lyginis");
+            //Console.Write((int)((ArrayList) odd_array[2])[0] + "nelyginis");
+
+            //Console.Write((int) ((ArrayList) odd_array[1])[0] + "testas");
+            foreach (ArrayList value in even_array) {
+                Console.Write("verte: "+value[0] + " ");
+                Console.Write( "i:"+ (int)((ArrayList)(value[1]))[0] + " " );
+                Console.Write( "b:" + (int)((ArrayList)(value[1]))[1] + " ");
+
+            }
+            //Console.Write(even_array[]);
+
 
 
 
