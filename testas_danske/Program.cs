@@ -9,7 +9,7 @@ namespace testas_danske
     {
         public static Array ReadFromFile()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"/Users/andrius/Projects/testas_danske/testas_danske.txt/EmptyTextFile.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"/tmp/data.txt");
             return lines;
         }
 
